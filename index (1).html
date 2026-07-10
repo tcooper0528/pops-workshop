@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pop's Workshop — Faith, Fun & Apps for Families</title>
+<meta name="description" content="Bible apps, family games, and children's ministry resources built by a children's pastor and librarian turned app builder.">
+
+<!-- Fonts: Fredoka (display) + Nunito (body) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   POP'S WORKSHOP  (final combo)
+   Design system from the Claude Design pass +
+   the centered layout from the first version.
+   ============================================================ */
+
+/* ---------- color tokens ---------- */
+:root {
+  --pw-sunshine: #FFC93C;
+  --pw-sky: #58B4E8;
+  --pw-coral: #FF6B57;
+  --pw-grass: #47B172;
+  --pw-ink: #23325A;      /* friendly navy — never pure black */
+  --pw-paper: #F2F9FF;    /* bright sky-tinted white */
+  --pw-white: #FFFFFF;
+
+  --pw-ink-70: rgba(35, 50, 90, 0.70);
+  --pw-ink-30: rgba(35, 50, 90, 0.30);
+  --pw-ink-12: rgba(35, 50, 90, 0.12);
+  --pw-ink-08: rgba(35, 50, 90, 0.08);
+
+  --pw-text-soft: var(--pw-ink-70);
+  --pw-surface: var(--pw-white);
+  --pw-link: var(--pw-coral);
+  --pw-focus: var(--pw-sky);
+  --pw-success: var(--pw-grass);
+}
+
+/* ---------- typography tokens ---------- */
+:root {
+  --pw-font-display: 'Fredoka', 'Nunito', system-ui, sans-serif;
+  --pw-font-body: 'Nunito', system-ui, sans-serif;
+
+  --pw-text-hero: 600 clamp(38px, 5.5vw, 56px)/1.12 var(--pw-font-display);
+  --pw-text-h2: 600 clamp(28px, 4vw, 34px)/1.2 var(--pw-font-display);
+  --pw-text-h3: 600 21px/1.25 var(--pw-font-display);
+
+  --pw-text-body: 500 16.5px/1.6 var(--pw-font-body);
+  --pw-text-body-sm: 500 14.5px/1.55 var(--pw-font-body);
+  --pw-text-label: 800 13px/1.2 var(--pw-font-body);
+  --pw-tracking-label: 0.08em;
+}
+
+/* ---------- radii, borders, shadows, motion ---------- */
+:root {
+  --pw-radius-card: 22px;
+  --pw-radius-tile: 16px;
+  --pw-radius-pill: 999px;
+
+  --pw-border-ink: 3px solid var(--pw-ink);
+  --pw-border-sticker: 5px solid var(--pw-white);
+
+  --pw-shadow-soft: 0 10px 24px var(--pw-ink-12), 0 2px 6px var(--pw-ink-08);
+  --pw-shadow-soft-lift: 0 18px 34px rgba(35, 50, 90, 0.18), 0 4px 10px var(--pw-ink-12);
+  --pw-shadow-hard: 0 4px 0 var(--pw-ink);
+  --pw-shadow-hard-lift: 0 6px 0 var(--pw-ink);
+  --pw-shadow-hard-press: 0 2px 0 var(--pw-ink);
+  --pw-shadow-tile: 3px 3px 0 var(--pw-ink);
+  --pw-ring-sticker: 0 0 0 2px var(--pw-ink-12);
+
+  --pw-tilt-left: -1.6deg;
+  --pw-tilt-right: 1.4deg;
+
+  --pw-ease-pop: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --pw-duration-quick: 0.15s;
+  --pw-duration-float: 4.5s;
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--pw-ink);
+  font: var(--pw-text-body);
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 { font-family: var(--pw-font-display); font-weight: 600; color: var(--pw-ink); margin: 0; }
+p { margin: 0; }
+a { color: var(--pw-link); font-weight: 800; text-decoration: none; }
+a:hover { text-decoration: underline; text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--pw-focus); outline-offset: 3px; border-radius: 6px; }
+
+/* confetti-dot paper */
+.pw-confetti {
+  background-color: var(--pw-paper);
+  background-image:
+    radial-gradient(rgba(88, 180, 232, 0.16) 2.5px, transparent 2.5px),
+    radial-gradient(rgba(255, 201, 60, 0.22) 2px, transparent 2px);
+  background-size: 56px 56px, 56px 56px;
+  background-position: 0 0, 28px 28px;
+}
+
+/* hand-drawn wavy underline */
+.pw-wavy {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='8' viewBox='0 0 22 8'%3E%3Cpath d='M1 5.5 Q 6 1.5 11 5.5 T 21 5.5' fill='none' stroke='%23FFC93C' stroke-width='3.5' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-position: 0 100%;
+  background-size: 22px 8px;
+  padding-bottom: 0.22em;
+}
+
+/* gentle bobbing float */
+@keyframes pw-float {
+  0%, 100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-12px) rotate(5deg); }
+}
+.pw-float { animation: pw-float var(--pw-duration-float) ease-in-out infinite; }
+.pw-float--slow { animation-duration: 5.2s; }
+.pw-float--delay { animation-delay: 1.4s; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- pill button ---------- */
+.pw-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font-family: var(--pw-font-display); font-weight: 600; font-size: 17px;
+  letter-spacing: 0.01em;
+  color: var(--pw-ink); background: var(--pw-white);
+  border: var(--pw-border-ink); border-radius: var(--pw-radius-pill);
+  padding: 12px 26px;
+  box-shadow: var(--pw-shadow-hard);
+  cursor: pointer; text-decoration: none;
+  transition: transform var(--pw-duration-quick) ease, box-shadow var(--pw-duration-quick) ease;
+}
+.pw-btn:hover { transform: translateY(-2px); box-shadow: var(--pw-shadow-hard-lift); text-decoration: none; }
+.pw-btn:active { transform: translateY(2px); box-shadow: var(--pw-shadow-hard-press); }
+.pw-btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; box-shadow: var(--pw-shadow-hard); }
+.pw-btn--sunshine { background: var(--pw-sunshine); color: var(--pw-ink); }
+.pw-btn--coral { background: var(--pw-coral); color: var(--pw-white); }
+.pw-btn--white { background: var(--pw-white); color: var(--pw-ink); }
+.pw-btn--lg { font-size: 20px; padding: 16px 34px; }
+.pw-btn--sm { font-size: 15px; padding: 8px 18px; box-shadow: 0 3px 0 var(--pw-ink); }
+
+/* ---------- icon tile ---------- */
+.pw-tile {
+  width: 58px; height: 58px;
+  border-radius: var(--pw-radius-tile);
+  border: var(--pw-border-ink);
+  box-shadow: var(--pw-shadow-tile);
+  display: inline-grid; place-items: center;
+  font-size: 28px; line-height: 1; flex: none;
+}
+.pw-tile--sunshine { background: var(--pw-sunshine); }
+.pw-tile--sky { background: var(--pw-sky); }
+.pw-tile--coral { background: var(--pw-coral); }
+.pw-tile--grass { background: var(--pw-grass); }
+.pw-tile--white { background: var(--pw-white); }
+
+/* ---------- sticker card ---------- */
+.pw-sticker {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 14px;
+  background: var(--pw-surface);
+  border: var(--pw-border-sticker); border-radius: var(--pw-radius-card);
+  box-shadow: var(--pw-ring-sticker), var(--pw-shadow-soft);
+  padding: 26px 24px;
+  transform: rotate(var(--pw-tilt-left));
+  transition: transform 0.2s var(--pw-ease-pop), box-shadow 0.2s ease;
+  text-align: left;
+}
+.pw-sticker--right { transform: rotate(var(--pw-tilt-right)); }
+.pw-sticker:hover, .pw-sticker:focus-within {
+  transform: rotate(0deg) translateY(-6px);
+  box-shadow: var(--pw-ring-sticker), var(--pw-shadow-soft-lift);
+}
+.pw-sticker__title { font: var(--pw-text-h3); font-family: var(--pw-font-display); }
+.pw-sticker__body { font: var(--pw-text-body-sm); color: var(--pw-text-soft); flex: 1; }
+.pw-sticker__link { font-family: var(--pw-font-body); font-weight: 800; font-size: 14.5px; }
+
+/* ---------- small label (eyebrow) ---------- */
+.pw-label {
+  font: var(--pw-text-label);
+  letter-spacing: var(--pw-tracking-label);
+  text-transform: uppercase;
+  color: var(--pw-ink-70);
+}
+
+/* ---------- badge ---------- */
+.pw-badge {
+  display: inline-block;
+  font: 800 11.5px/1.2 var(--pw-font-body);
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--pw-ink); background: var(--pw-paper);
+  border: 2px solid var(--pw-ink); border-radius: var(--pw-radius-pill);
+  padding: 2px 10px; vertical-align: middle; margin-left: 8px;
+}
+
+/* ============================================================
+   PAGE LAYOUT — centered throughout
+   ============================================================ */
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+/* header */
+header.site { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 24px 0; flex-wrap: wrap; }
+.logo { display: flex; align-items: center; gap: 12px; font: 600 24px/1 var(--pw-font-display); color: var(--pw-ink); text-decoration: none; }
+.logo:hover { text-decoration: none; }
+nav { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+@media (max-width: 640px) { nav { display: none; } }
+
+/* hero — CENTERED, with floating shapes scattered around */
+.hero {
+  position: relative;
+  text-align: center;
+  padding: 48px 0 68px;
+  display: flex; flex-direction: column; align-items: center; gap: 20px;
+}
+.avatar {
+  width: 128px; height: 128px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--pw-sky), var(--pw-grass));
+  border: 6px solid var(--pw-white);
+  box-shadow: var(--pw-ring-sticker), 0 6px 0 var(--pw-ink-12);
+  display: grid; place-items: center; font-size: 56px;
+}
+/* When you add a real photo, replace the emoji inside .avatar with:
+   <img src="popandlolly.jpg" alt="Pop Pop"
+        style="width:100%;height:100%;object-fit:cover;border-radius:50%;"> */
+.hero h1 { font: var(--pw-text-hero); text-wrap: pretty; }
+.hero .lede { font: 500 18px/1.6 var(--pw-font-body); color: var(--pw-text-soft); max-width: 52ch; }
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-top: 4px; }
+
+/* scattered floating shapes (corners) */
+.float { position: absolute; font-size: 2rem; user-select: none; pointer-events: none; }
+.float.f1 { top: 6%; left: 5%; }
+.float.f2 { top: 16%; right: 7%; animation-delay: 1.2s; }
+.float.f3 { bottom: 12%; left: 10%; animation-delay: 2.1s; }
+.float.f4 { bottom: 20%; right: 12%; animation-delay: .6s; }
+@media (max-width: 720px) { .float { display: none; } }
+
+/* sections */
+section.block { padding: 30px 0 56px; }
+.section-head { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 8px 0 30px; }
+.section-head h2 { font: var(--pw-text-h2); }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 30px; }
+
+/* about panel — CENTERED, badge stacked on top */
+.about {
+  background: var(--pw-surface);
+  border: var(--pw-border-sticker); border-radius: 28px;
+  box-shadow: var(--pw-ring-sticker), var(--pw-shadow-soft);
+  padding: 40px 38px;
+  max-width: 720px; margin: 0 auto;
+  text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 18px;
+}
+.about p { color: var(--pw-text-soft); }
+.about strong { color: var(--pw-ink); }
+
+/* coming soon panel — centered */
+.soon {
+  background: var(--pw-sunshine);
+  border: var(--pw-border-ink); border-radius: 28px;
+  box-shadow: var(--pw-shadow-hard-lift);
+  padding: 42px 34px; text-align: center; position: relative;
+  max-width: 760px; margin: 0 auto;
+}
+.soon .pin { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); font-size: 22px; }
+.soon h2 { font: var(--pw-text-h2); margin-bottom: 12px; }
+.soon p { max-width: 58ch; margin: 0 auto 8px; font-weight: 600; }
+
+/* signup panel — centered */
+.signup-box {
+  background: var(--pw-surface);
+  border: var(--pw-border-sticker); border-radius: 28px;
+  box-shadow: var(--pw-ring-sticker), var(--pw-shadow-soft);
+  max-width: 640px; margin: 0 auto; padding: 42px 34px; text-align: center;
+}
+.signup-box h2 { font: var(--pw-text-h2); margin-bottom: 8px; }
+.signup-box .pitch { color: var(--pw-text-soft); font-weight: 600; margin-bottom: 24px; }
+.signup-form { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.signup-form input[type="email"] {
+  font: 600 16px/1 var(--pw-font-body); color: var(--pw-ink);
+  padding: 14px 18px; border-radius: var(--pw-radius-pill);
+  border: var(--pw-border-ink); background: var(--pw-paper); min-width: 250px;
+}
+.signup-note { font: var(--pw-text-body-sm); color: var(--pw-ink-70); margin-top: 16px; }
+#signup-thanks { display: none; font: 800 17px/1.4 var(--pw-font-body); color: var(--pw-success); margin-top: 18px; }
+
+/* footer */
+footer.site { border-top: 3px solid var(--pw-ink-12); margin-top: 24px; padding: 30px 0 44px; text-align: center; }
+footer.site .verse { font: italic 600 15px/1.5 var(--pw-font-body); color: var(--pw-text-soft); margin-bottom: 8px; }
+footer.site .credit { font: 700 14px/1.4 var(--pw-font-body); color: var(--pw-text-soft); }
+</style>
+</head>
+<body class="pw-confetti">
+<div class="wrap">
+
+  <!-- ================= HEADER ================= -->
+  <header class="site">
+    <a class="logo" href="#top">
+      <span class="pw-tile pw-tile--sunshine" style="width:44px;height:44px;font-size:22px" aria-hidden="true">🛠️</span>
+      Pop's Workshop
+    </a>
+    <nav aria-label="Main">
+      <a class="pw-btn pw-btn--white pw-btn--sm" href="#apps">My Apps</a>
+      <a class="pw-btn pw-btn--white pw-btn--sm" href="#about">About</a>
+      <a class="pw-btn pw-btn--white pw-btn--sm" href="#soon">Coming Soon</a>
+      <a class="pw-btn pw-btn--coral pw-btn--sm" href="#signup">Join the List</a>
+    </nav>
+  </header>
+
+  <!-- ================= HERO (centered) ================= -->
+  <section class="hero" id="top">
+    <span class="float f1 pw-float" aria-hidden="true">✝️</span>
+    <span class="float f2 pw-float pw-float--delay" aria-hidden="true">🎲</span>
+    <span class="float f3 pw-float pw-float--slow" aria-hidden="true">⭐</span>
+    <span class="float f4 pw-float pw-float--slow pw-float--delay" aria-hidden="true">📖</span>
+
+    <div class="avatar" aria-hidden="true">👴</div>
+    <span class="pw-label">Bible apps &amp; games for kids and families</span>
+    <h1>Made with love in <span class="pw-wavy">Pop's</span> workshop</h1>
+    <p class="lede">
+      I'm Pop Pop — a children's pastor and librarian turned app builder.
+      I make Bible apps, family games, and ministry goodies that help kids
+      fall in love with God's Word, and have a blast doing it.
+    </p>
+    <div class="hero-actions">
+      <a class="pw-btn pw-btn--sunshine pw-btn--lg" href="#apps">See what I've built 🎨</a>
+      <a class="pw-btn pw-btn--coral pw-btn--lg" href="#signup">Join the list ✉️</a>
+    </div>
+  </section>
+
+  <!-- ================= APPS ================= -->
+  <section class="block" id="apps">
+    <div class="section-head">
+      <span class="pw-label">Live on the web right now</span>
+      <h2>Peel one off and <span class="pw-wavy">play</span></h2>
+    </div>
+
+    <div class="cards">
+
+      <article class="pw-sticker">
+        <span class="pw-tile pw-tile--sunshine" aria-hidden="true">📖</span>
+        <h3 class="pw-sticker__title">Lifelight</h3>
+        <p class="pw-sticker__body">A full Bible study app: read Scripture, play three word games, tackle a 347-question trivia challenge across 25 levels, track morning devotions with streaks and badges, and keep a prayer journal.</p>
+        <a class="pw-sticker__link" href="https://tcooper0528.github.io/Lifelight/" target="_blank" rel="noopener">Open Lifelight →</a>
+      </article>
+
+      <article class="pw-sticker pw-sticker--right">
+        <span class="pw-tile pw-tile--coral" aria-hidden="true">🎮</span>
+        <h3 class="pw-sticker__title">Lolly &amp; Pop's Hub <span class="pw-badge">Family Only</span></h3>
+        <p class="pw-sticker__body">Our private family hangout: six multiplayer games with room codes, live video chat, photo sharing, and a family message board. Grandkid-tested, Lolly-approved.</p>
+        <span class="pw-sticker__link" style="color: var(--pw-success)">Private — but I can build one for your family!</span>
+      </article>
+
+      <article class="pw-sticker">
+        <span class="pw-tile pw-tile--grass" aria-hidden="true">🐛</span>
+        <h3 class="pw-sticker__title">Glow Up Worm</h3>
+        <p class="pw-sticker__body">A neon multiplayer snake-style game. Eat, glow, grow, and try not to bump into your cousins. Simple, silly, and surprisingly competitive.</p>
+        <a class="pw-sticker__link" href="https://tcooper0528.github.io/glow-up-worm/" target="_blank" rel="noopener">Play Glow Up Worm →</a>
+        <!-- ^ double-check this URL matches your repo name -->
+      </article>
+
+      <article class="pw-sticker pw-sticker--right">
+        <span class="pw-tile pw-tile--sky" aria-hidden="true">⏱️</span>
+        <h3 class="pw-sticker__title">Exercise Timer</h3>
+        <p class="pw-sticker__body">A clean, no-fuss workout timer I built to keep myself moving. Set your intervals, hit start, done.</p>
+        <a class="pw-sticker__link" href="https://tcooper0528.github.io/exercise-timer/" target="_blank" rel="noopener">Try the Timer →</a>
+        <!-- ^ double-check this URL matches your repo name -->
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ================= ABOUT (centered) ================= -->
+  <section class="block" id="about">
+    <div class="about">
+      <span class="pw-tile pw-tile--coral" style="width:96px;height:96px;font-size:46px;border-radius:50%" aria-hidden="true">❤️</span>
+      <h2>The story behind the workshop</h2>
+      <p>I've spent my life at the crossroads of <strong>faith, storytelling, and kids</strong> — as a children's pastor, a church leader, and a children's librarian. These days I add one more ingredient: <strong>technology</strong>.</p>
+      <p>Everything here starts the same way: something I wished existed for my own grandkids — Xena, Gotham, and Harvey — or for the ministry leaders and parents I've served alongside for decades. If it makes a kid smile <em>and</em> plants a seed of Scripture, it belongs in the workshop.</p>
+    </div>
+  </section>
+
+  <!-- ================= COMING SOON (centered) ================= -->
+  <section class="block" id="soon">
+    <div class="soon">
+      <span class="pin" aria-hidden="true">📌</span>
+      <h2>Coming Soon: Bible Trivia Night Kit 🎉</h2>
+      <p>A print-and-play trivia night for kids' ministry — themed rounds pulled from Lifelight's 347-question bank, a host guide from someone who's actually wrangled a fellowship hall full of kids, score sheets, table tents, and a champion's certificate.</p>
+      <p><strong>Zero prep beyond printing.</strong> Join the list below and you'll be first to know (and first to get the founding discount).</p>
+    </div>
+  </section>
+
+  <!-- ================= EMAIL SIGNUP (centered) ================= -->
+  <section class="block" id="signup">
+    <div class="signup-box">
+      <h2>Join Pop's List ✉️</h2>
+      <p class="pitch">Ministry freebies, new apps, and first dibs on everything from the workshop. No spam, no noise — just the good stuff, once in a while.</p>
+
+      <!-- ============================================================
+           EMAIL SERVICE EMBED GOES HERE.
+           When you pick MailerLite or Buttondown, delete the form below
+           and paste their embed code in its place. Until then, this
+           placeholder form shows a friendly thank-you (it does NOT
+           actually collect emails yet).
+           ============================================================ -->
+      <form class="signup-form" id="placeholder-form">
+        <input type="email" id="email-input" placeholder="you@example.com" aria-label="Email address" required>
+        <button class="pw-btn pw-btn--coral" type="submit">Count me in!</button>
+      </form>
+      <p id="signup-thanks">🎉 Thanks! You're on the list, friend.</p>
+      <p class="signup-note">I'll never share your email. Unsubscribe anytime.</p>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site">
+    <p class="verse">"Let the little children come to me…" — Matthew 19:14</p>
+    <p class="credit">Made with ❤️ by Pop Pop · © <span id="year"></span> Pop's Workshop</p>
+  </footer>
+
+</div>
+
+<script>
+// Footer year
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// Placeholder signup handler — replace this whole block when you
+// paste in your real MailerLite/Buttondown embed form.
+document.getElementById('placeholder-form').addEventListener('submit', function(e){
+  e.preventDefault();
+  var email = document.getElementById('email-input').value.trim();
+  if(!email) return;
+  this.style.display = 'none';
+  document.getElementById('signup-thanks').style.display = 'block';
+});
+</script>
+
+</body>
+</html>
