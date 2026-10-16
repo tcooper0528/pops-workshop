@@ -3,81 +3,48 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pop's Workshop — Faith, Fun & Apps for Families</title>
-<meta name="description" content="Bible apps, family games, and children's ministry resources built by a children's pastor and librarian turned app builder.">
+<title>Pop's Story Workshop · Picture books for reading together</title>
+<meta name="description" content="Gentle, faith-filled picture books about Sammy and his friends in Maple Hollow, by Mr. Tim Cooper, a retired children's pastor and librarian. Read them free online.">
+<meta name="theme-color" content="#C23B22">
 
-<!-- Fonts: Fredoka (display) + Nunito (body) -->
+<!-- Favicon: the bookplate acorn -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M12 0H52A12 12 0 0 0 64 12V52A12 12 0 0 0 52 64H12A12 12 0 0 0 0 52V12A12 12 0 0 0 12 0Z' fill='%23C23B22'/%3E%3Cpath d='M17 30Q17 16 32 16Q47 16 47 30Z' fill='%23fff'/%3E%3Cpath d='M20 30H44Q44 46 32 54Q20 46 20 30Z' fill='%23F2B632'/%3E%3C/svg%3E">
+
+<!-- Fonts: Caprasimo (display) + Atkinson Hyperlegible (body) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Caprasimo&display=swap" rel="stylesheet">
 
 <style>
 /* ============================================================
-   POP'S WORKSHOP  (final combo)
-   Design system from the Claude Design pass +
-   the centered layout from the first version.
+   POP'S STORY WORKSHOP · "The Bookplate" brand
+   Colors, type and components from the Claude Design brand file.
    ============================================================ */
-
-/* ---------- color tokens ---------- */
 :root {
-  --pw-sunshine: #FFC93C;
-  --pw-sky: #58B4E8;
-  --pw-coral: #FF6B57;
-  --pw-grass: #47B172;
-  --pw-ink: #23325A;      /* friendly navy — never pure black */
-  --pw-paper: #F2F9FF;    /* bright sky-tinted white */
-  --pw-white: #FFFFFF;
+  /* palette */
+  --red: #C23B22;        /* Library Red: main buttons, logo */
+  --red-dark: #A8321D;   /* pressed red */
+  --ink: #1F2A44;        /* text, borders */
+  --blue: #2F6E9E;       /* Card Blue: links, signup */
+  --sun: #F2B632;        /* Sunflower: highlights (never as text on paper) */
+  --linen: #F6E7D2;      /* panels */
+  --paper: #FFFBF2;      /* page ground */
+  --slate: #3D4760;      /* quiet text */
+  --blue-tint: #E3EEF6;  /* tags */
+  --blue-deep: #1E4F75;
+  --rule: #E3CFAF;       /* dashed dividers */
+  --white: #FFFFFF;
 
-  --pw-ink-70: rgba(35, 50, 90, 0.70);
-  --pw-ink-30: rgba(35, 50, 90, 0.30);
-  --pw-ink-12: rgba(35, 50, 90, 0.12);
-  --pw-ink-08: rgba(35, 50, 90, 0.08);
+  /* type */
+  --display: 'Caprasimo', Georgia, serif;
+  --body: 'Atkinson Hyperlegible', system-ui, sans-serif;
 
-  --pw-text-soft: var(--pw-ink-70);
-  --pw-surface: var(--pw-white);
-  --pw-link: var(--pw-coral);
-  --pw-focus: var(--pw-sky);
-  --pw-success: var(--pw-grass);
-}
-
-/* ---------- typography tokens ---------- */
-:root {
-  --pw-font-display: 'Fredoka', 'Nunito', system-ui, sans-serif;
-  --pw-font-body: 'Nunito', system-ui, sans-serif;
-
-  --pw-text-hero: 600 clamp(38px, 5.5vw, 56px)/1.12 var(--pw-font-display);
-  --pw-text-h2: 600 clamp(28px, 4vw, 34px)/1.2 var(--pw-font-display);
-  --pw-text-h3: 600 21px/1.25 var(--pw-font-display);
-
-  --pw-text-body: 500 16.5px/1.6 var(--pw-font-body);
-  --pw-text-body-sm: 500 14.5px/1.55 var(--pw-font-body);
-  --pw-text-label: 800 13px/1.2 var(--pw-font-body);
-  --pw-tracking-label: 0.08em;
-}
-
-/* ---------- radii, borders, shadows, motion ---------- */
-:root {
-  --pw-radius-card: 22px;
-  --pw-radius-tile: 16px;
-  --pw-radius-pill: 999px;
-
-  --pw-border-ink: 3px solid var(--pw-ink);
-  --pw-border-sticker: 5px solid var(--pw-white);
-
-  --pw-shadow-soft: 0 10px 24px var(--pw-ink-12), 0 2px 6px var(--pw-ink-08);
-  --pw-shadow-soft-lift: 0 18px 34px rgba(35, 50, 90, 0.18), 0 4px 10px var(--pw-ink-12);
-  --pw-shadow-hard: 0 4px 0 var(--pw-ink);
-  --pw-shadow-hard-lift: 0 6px 0 var(--pw-ink);
-  --pw-shadow-hard-press: 0 2px 0 var(--pw-ink);
-  --pw-shadow-tile: 3px 3px 0 var(--pw-ink);
-  --pw-ring-sticker: 0 0 0 2px var(--pw-ink-12);
-
-  --pw-tilt-left: -1.6deg;
-  --pw-tilt-right: 1.4deg;
-
-  --pw-ease-pop: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --pw-duration-quick: 0.15s;
-  --pw-duration-float: 4.5s;
+  /* shape */
+  --radius: 10px;
+  --radius-card: 14px;
+  --edge: 2px solid var(--ink);
+  --press: 0 4px 0 var(--ink);
+  --press-card: 0 6px 0 var(--ink);
 }
 
 /* ---------- base ---------- */
@@ -85,365 +52,511 @@
 html { scroll-behavior: smooth; }
 body {
   margin: 0;
-  color: var(--pw-ink);
-  font: var(--pw-text-body);
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 18px/1.6 var(--body);
   -webkit-font-smoothing: antialiased;
 }
-h1, h2, h3, h4 { font-family: var(--pw-font-display); font-weight: 600; color: var(--pw-ink); margin: 0; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; margin: 0; line-height: 1.1; color: var(--ink); }
 p { margin: 0; }
-a { color: var(--pw-link); font-weight: 800; text-decoration: none; }
-a:hover { text-decoration: underline; text-decoration-thickness: 2px; }
-:focus-visible { outline: 3px solid var(--pw-focus); outline-offset: 3px; border-radius: 6px; }
+img { max-width: 100%; display: block; }
+a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 2px; font-weight: 700; }
+a:hover { color: var(--blue-deep); }
+:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; border-radius: 6px; }
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
 
-/* confetti-dot paper */
-.pw-confetti {
-  background-color: var(--pw-paper);
-  background-image:
-    radial-gradient(rgba(88, 180, 232, 0.16) 2.5px, transparent 2.5px),
-    radial-gradient(rgba(255, 201, 60, 0.22) 2px, transparent 2px);
-  background-size: 56px 56px, 56px 56px;
-  background-position: 0 0, 28px 28px;
-}
-
-/* hand-drawn wavy underline */
-.pw-wavy {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='8' viewBox='0 0 22 8'%3E%3Cpath d='M1 5.5 Q 6 1.5 11 5.5 T 21 5.5' fill='none' stroke='%23FFC93C' stroke-width='3.5' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: repeat-x;
-  background-position: 0 100%;
-  background-size: 22px 8px;
-  padding-bottom: 0.22em;
-}
-
-/* gentle bobbing float */
-@keyframes pw-float {
-  0%, 100% { transform: translateY(0) rotate(-4deg); }
-  50% { transform: translateY(-12px) rotate(5deg); }
-}
-.pw-float { animation: pw-float var(--pw-duration-float) ease-in-out infinite; }
-.pw-float--slow { animation-duration: 5.2s; }
-.pw-float--delay { animation-delay: 1.4s; }
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-/* ---------- pill button ---------- */
-.pw-btn {
-  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-  font-family: var(--pw-font-display); font-weight: 600; font-size: 17px;
-  letter-spacing: 0.01em;
-  color: var(--pw-ink); background: var(--pw-white);
-  border: var(--pw-border-ink); border-radius: var(--pw-radius-pill);
-  padding: 12px 26px;
-  box-shadow: var(--pw-shadow-hard);
-  cursor: pointer; text-decoration: none;
-  transition: transform var(--pw-duration-quick) ease, box-shadow var(--pw-duration-quick) ease;
-}
-.pw-btn:hover { transform: translateY(-2px); box-shadow: var(--pw-shadow-hard-lift); text-decoration: none; }
-.pw-btn:active { transform: translateY(2px); box-shadow: var(--pw-shadow-hard-press); }
-.pw-btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; box-shadow: var(--pw-shadow-hard); }
-.pw-btn--sunshine { background: var(--pw-sunshine); color: var(--pw-ink); }
-.pw-btn--coral { background: var(--pw-coral); color: var(--pw-white); }
-.pw-btn--white { background: var(--pw-white); color: var(--pw-ink); }
-.pw-btn--lg { font-size: 20px; padding: 16px 34px; }
-.pw-btn--sm { font-size: 15px; padding: 8px 18px; box-shadow: 0 3px 0 var(--pw-ink); }
-
-/* ---------- icon tile ---------- */
-.pw-tile {
-  width: 58px; height: 58px;
-  border-radius: var(--pw-radius-tile);
-  border: var(--pw-border-ink);
-  box-shadow: var(--pw-shadow-tile);
-  display: inline-grid; place-items: center;
-  font-size: 28px; line-height: 1; flex: none;
-}
-.pw-tile--sunshine { background: var(--pw-sunshine); }
-.pw-tile--sky { background: var(--pw-sky); }
-.pw-tile--coral { background: var(--pw-coral); }
-.pw-tile--grass { background: var(--pw-grass); }
-.pw-tile--white { background: var(--pw-white); }
-
-/* ---------- sticker card ---------- */
-.pw-sticker {
-  display: flex; flex-direction: column; align-items: flex-start; gap: 14px;
-  background: var(--pw-surface);
-  border: var(--pw-border-sticker); border-radius: var(--pw-radius-card);
-  box-shadow: var(--pw-ring-sticker), var(--pw-shadow-soft);
-  padding: 26px 24px;
-  transform: rotate(var(--pw-tilt-left));
-  transition: transform 0.2s var(--pw-ease-pop), box-shadow 0.2s ease;
-  text-align: left;
-}
-.pw-sticker--right { transform: rotate(var(--pw-tilt-right)); }
-.pw-sticker:hover, .pw-sticker:focus-within {
-  transform: rotate(0deg) translateY(-6px);
-  box-shadow: var(--pw-ring-sticker), var(--pw-shadow-soft-lift);
-}
-.pw-sticker__title { font: var(--pw-text-h3); font-family: var(--pw-font-display); }
-.pw-sticker__body { font: var(--pw-text-body-sm); color: var(--pw-text-soft); flex: 1; }
-.pw-sticker__link { font-family: var(--pw-font-body); font-weight: 800; font-size: 14.5px; }
-
-/* ---------- small label (eyebrow) ---------- */
-.pw-label {
-  font: var(--pw-text-label);
-  letter-spacing: var(--pw-tracking-label);
-  text-transform: uppercase;
-  color: var(--pw-ink-70);
-}
-
-/* ---------- badge ---------- */
-.pw-badge {
+/* ---------- labels, tags ---------- */
+.label {
   display: inline-block;
-  font: 800 11.5px/1.2 var(--pw-font-body);
-  letter-spacing: 0.06em; text-transform: uppercase;
-  color: var(--pw-ink); background: var(--pw-paper);
-  border: 2px solid var(--pw-ink); border-radius: var(--pw-radius-pill);
-  padding: 2px 10px; vertical-align: middle; margin-left: 8px;
+  font: 700 13px/1.2 var(--body); letter-spacing: 0.16em; text-transform: uppercase;
+}
+.label--chip { background: var(--blue-tint); color: var(--ink); padding: 5px 10px; border-radius: 6px; }
+.label--sun { background: var(--sun); color: var(--ink); padding: 5px 10px; border-radius: 6px; }
+.label--red { color: var(--red); }
+.tag {
+  display: inline-block; font: 700 12px/1 var(--body); letter-spacing: 0.14em; text-transform: uppercase;
+  background: var(--blue-tint); color: var(--ink); padding: 6px 10px; border-radius: 6px;
+}
+.rule-line { flex: 1; border-top: 2px dashed var(--rule); min-width: 40px; }
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 48px; padding: 10px 22px;
+  font: 700 17px/1.1 var(--body); text-decoration: none;
+  color: var(--ink); background: var(--white);
+  border: var(--edge); border-radius: var(--radius);
+  box-shadow: var(--press);
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease, background-color .12s ease;
+}
+.btn:hover { transform: translateY(2px); box-shadow: 0 2px 0 var(--ink); background: var(--linen); color: var(--ink); }
+.btn:active { transform: translateY(4px); box-shadow: 0 0 0 var(--ink); }
+.btn--red { background: var(--red); color: var(--white); }
+.btn--red:hover { background: var(--red-dark); color: var(--white); }
+.btn--sun { background: var(--sun); color: var(--ink); }
+.btn--sun:hover { background: #E3A51F; }
+.btn--sm { min-height: 44px; padding: 8px 14px; font-size: 15px; }
+.btn--soon { box-shadow: none; border-style: dashed; color: var(--slate); background: transparent; cursor: default; }
+.btn--soon:hover { transform: none; box-shadow: none; background: transparent; color: var(--slate); }
+
+/* ---------- top bar ---------- */
+.topbar { background: var(--paper); border-bottom: var(--edge); position: sticky; top: 0; z-index: 10; }
+.topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 12px; padding-bottom: 12px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.brand svg { width: 38px; height: 38px; flex: none; }
+.brand span { font: 400 22px/1 var(--display); color: var(--red); white-space: nowrap; }
+.brand span b { font-weight: 400; color: var(--ink); }
+.nav { display: flex; align-items: center; gap: 22px; }
+.nav a:not(.btn) { color: var(--ink); text-decoration: none; font-size: 16px; }
+.nav a:not(.btn):hover { text-decoration: underline; }
+@media (max-width: 860px) { .nav a:not(.btn) { display: none; } }
+@media (max-width: 420px) { .brand span { font-size: 18px; } .nav .btn { padding: 8px 12px; font-size: 14px; } }
+
+/* ---------- hero ---------- */
+.hero { padding: 56px 0 72px; }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 56px; align-items: center; }
+.eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+.hero h1 { font-size: clamp(44px, 6vw, 64px); line-height: 1.05; text-wrap: balance; }
+.hero h1 em { font-style: normal; color: var(--red); }
+.hero .lede { font-size: 20px; color: var(--slate); margin: 22px 0 28px; max-width: 34em; }
+.actions { display: flex; flex-wrap: wrap; gap: 14px; }
+.hero .small { font-size: 15px; color: var(--slate); margin-top: 18px; }
+
+.art { position: relative; padding-bottom: 40px; }
+.art-frame {
+  background: var(--red); border: var(--edge); border-radius: 18px;
+  padding: 12px; box-shadow: 0 8px 0 var(--ink);
+}
+.art-pic {
+  aspect-ratio: 1 / 1; overflow: hidden;
+  border-radius: 8px; border: 3px solid var(--paper); background: var(--linen);
+}
+.art-pic img { width: 100%; height: 100%; object-fit: cover; }
+.hello {
+  position: absolute; left: -28px; bottom: 0;
+  display: flex; align-items: center; gap: 14px;
+  background: var(--white); border: var(--edge); border-radius: var(--radius-card);
+  box-shadow: var(--press); padding: 12px 18px 12px 12px; max-width: 360px;
+}
+.hello img { width: 64px; height: 64px; border-radius: 50%; border: 3px solid var(--sun); object-fit: cover; flex: none; }
+.hello strong { display: block; font: 400 21px/1.15 var(--display); }
+.hello p { font-size: 15px; line-height: 1.4; color: var(--slate); }
+@media (max-width: 900px) {
+  .hero .wrap { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+  .hello { left: 12px; right: 12px; max-width: none; }
 }
 
-/* ============================================================
-   PAGE LAYOUT — centered throughout
-   ============================================================ */
-.wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+/* ---------- strip ---------- */
+.strip { background: var(--linen); border-top: var(--edge); border-bottom: var(--edge); }
+.strip ul { list-style: none; margin: 0; padding: 18px 0; display: flex; justify-content: space-between; gap: 12px 28px; flex-wrap: wrap; }
+.strip li { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 16px; }
+.dot { width: 12px; height: 12px; border-radius: 50%; flex: none; }
 
-/* header */
-header.site { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 24px 0; flex-wrap: wrap; }
-.logo { display: flex; align-items: center; gap: 12px; font: 600 24px/1 var(--pw-font-display); color: var(--pw-ink); text-decoration: none; }
-.logo:hover { text-decoration: none; }
-nav { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-@media (max-width: 640px) { nav { display: none; } }
+/* ---------- sections ---------- */
+section.block { padding: 80px 0; }
+.shelf-head { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+.block h2 { font-size: clamp(30px, 4vw, 48px); }
+.block .intro { color: var(--slate); max-width: 40em; margin-top: 14px; }
+.center-head { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.center-head svg { width: 28px; height: 28px; }
+.center-head .underline { width: 72px; height: 6px; border-radius: 3px; background: var(--sun); margin-top: 6px; }
 
-/* hero — CENTERED, with floating shapes scattered around */
-.hero {
-  position: relative;
-  text-align: center;
-  padding: 48px 0 68px;
-  display: flex; flex-direction: column; align-items: center; gap: 20px;
+/* ---------- book cards ---------- */
+.books { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 32px; margin-top: 40px; }
+.card {
+  background: var(--white); border: var(--edge); border-radius: var(--radius-card);
+  box-shadow: var(--press-card); overflow: hidden;
+  display: flex; flex-direction: column;
 }
-.avatar {
-  width: 128px; height: 128px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--pw-sky), var(--pw-grass));
-  border: 6px solid var(--pw-white);
-  box-shadow: var(--pw-ring-sticker), 0 6px 0 var(--pw-ink-12);
-  display: grid; place-items: center; font-size: 56px;
+.card-img { aspect-ratio: 4 / 3; background: var(--linen); border-bottom: var(--edge); }
+.card-img img { width: 100%; height: 100%; object-fit: cover; }
+.card-body { padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.card h3 { font-size: 26px; line-height: 1.15; }
+.card .series { font: 700 12px/1.3 var(--body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate); }
+.card .btns { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 10px; }
+
+/* ---------- friends ---------- */
+.friends { background: var(--white); border-top: var(--edge); border-bottom: var(--edge); }
+.friend-list { list-style: none; padding: 0; margin: 32px auto 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; max-width: 780px; }
+.friend-list li {
+  font: 400 20px/1 var(--display); color: var(--ink);
+  background: var(--paper); border: var(--edge); border-radius: 999px; padding: 12px 20px;
 }
-/* When you add a real photo, replace the emoji inside .avatar with:
-   <img src="popandlolly.jpg" alt="Pop Pop"
-        style="width:100%;height:100%;object-fit:cover;border-radius:50%;"> */
-.hero h1 { font: var(--pw-text-hero); text-wrap: pretty; }
-.hero .lede { font: 500 18px/1.6 var(--pw-font-body); color: var(--pw-text-soft); max-width: 52ch; }
-.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-top: 4px; }
 
-/* scattered floating shapes (corners) */
-.float { position: absolute; font-size: 2rem; user-select: none; pointer-events: none; }
-.float.f1 { top: 6%; left: 5%; }
-.float.f2 { top: 16%; right: 7%; animation-delay: 1.2s; }
-.float.f3 { bottom: 12%; left: 10%; animation-delay: 2.1s; }
-.float.f4 { bottom: 20%; right: 12%; animation-delay: .6s; }
-@media (max-width: 720px) { .float { display: none; } }
-
-/* sections */
-section.block { padding: 30px 0 56px; }
-.section-head { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 8px 0 30px; }
-.section-head h2 { font: var(--pw-text-h2); }
-.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 30px; }
-
-/* about panel — CENTERED, badge stacked on top */
-.about {
-  background: var(--pw-surface);
-  border: var(--pw-border-sticker); border-radius: 28px;
-  box-shadow: var(--pw-ring-sticker), var(--pw-shadow-soft);
-  padding: 40px 38px;
-  max-width: 720px; margin: 0 auto;
-  text-align: center;
-  display: flex; flex-direction: column; align-items: center; gap: 18px;
+/* ---------- about ---------- */
+.about { display: grid; grid-template-columns: 220px 1fr; gap: 48px; align-items: center; max-width: 920px; margin: 0 auto; }
+.about .portrait {
+  width: 220px; height: 220px; border-radius: 50%; object-fit: cover;
+  border: 6px solid var(--sun); box-shadow: 0 0 0 2px var(--ink);
 }
-.about p { color: var(--pw-text-soft); }
-.about strong { color: var(--pw-ink); }
+.about h2 { margin: 10px 0 16px; }
+.about p + p { margin-top: 14px; }
+.about p { color: var(--slate); }
+.sign { font: 400 26px/1 var(--display); color: var(--red); margin-top: 18px; }
+@media (max-width: 760px) { .about { grid-template-columns: 1fr; text-align: center; justify-items: center; gap: 28px; } }
 
-/* coming soon panel — centered */
-.soon {
-  background: var(--pw-sunshine);
-  border: var(--pw-border-ink); border-radius: 28px;
-  box-shadow: var(--pw-shadow-hard-lift);
-  padding: 42px 34px; text-align: center; position: relative;
-  max-width: 760px; margin: 0 auto;
-}
-.soon .pin { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); font-size: 22px; }
-.soon h2 { font: var(--pw-text-h2); margin-bottom: 12px; }
-.soon p { max-width: 58ch; margin: 0 auto 8px; font-weight: 600; }
+/* ---------- leaders ---------- */
+.leaders { background: var(--linen); border-top: var(--edge); border-bottom: var(--edge); }
+.leaders .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.leaders h2 { margin-top: 10px; }
+.verse-table { width: 100%; border-collapse: separate; border-spacing: 0; background: var(--white); border: var(--edge); border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--press); }
+.verse-table th, .verse-table td { text-align: left; padding: 14px 18px; border-bottom: 2px dashed var(--rule); font-size: 16px; }
+.verse-table tr:last-child td { border-bottom: 0; }
+.verse-table th { font: 700 12px/1.2 var(--body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate); background: var(--paper); border-bottom: var(--edge); }
+.verse-table td:first-child { font-family: var(--display); font-size: 19px; }
+@media (max-width: 860px) { .leaders .wrap { grid-template-columns: 1fr; } }
 
-/* signup panel — centered */
-.signup-box {
-  background: var(--pw-surface);
-  border: var(--pw-border-sticker); border-radius: 28px;
-  box-shadow: var(--pw-ring-sticker), var(--pw-shadow-soft);
-  max-width: 640px; margin: 0 auto; padding: 42px 34px; text-align: center;
-}
-.signup-box h2 { font: var(--pw-text-h2); margin-bottom: 8px; }
-.signup-box .pitch { color: var(--pw-text-soft); font-weight: 600; margin-bottom: 24px; }
-.signup-form { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-.signup-form input[type="email"] {
-  font: 600 16px/1 var(--pw-font-body); color: var(--pw-ink);
-  padding: 14px 18px; border-radius: var(--pw-radius-pill);
-  border: var(--pw-border-ink); background: var(--pw-paper); min-width: 250px;
-}
-.signup-note { font: var(--pw-text-body-sm); color: var(--pw-ink-70); margin-top: 16px; }
-#signup-thanks { display: none; font: 800 17px/1.4 var(--pw-font-body); color: var(--pw-success); margin-top: 18px; }
+/* ---------- signup band (Kit form) ---------- */
+.signup { background: var(--blue); color: var(--white); border-top: var(--edge); border-bottom: var(--edge); }
+.signup .wrap { display: grid; grid-template-columns: 220px 1fr; gap: 48px; align-items: center; padding-top: 64px; padding-bottom: 64px; }
+.signup .plate { background: var(--white); border: var(--edge); border-radius: var(--radius-card); box-shadow: var(--press-card); padding: 22px; }
+.signup .plate svg { width: 100%; height: auto; }
+.signup .label { color: var(--sun); margin-bottom: 6px; }
+@media (max-width: 760px) { .signup .wrap { grid-template-columns: 1fr; } .signup .plate { max-width: 200px; } }
 
-/* footer */
-footer.site { border-top: 3px solid var(--pw-ink-12); margin-top: 24px; padding: 30px 0 44px; text-align: center; }
-footer.site .verse { font: italic 600 15px/1.5 var(--pw-font-body); color: var(--pw-text-soft); margin-bottom: 8px; }
-footer.site .credit { font: 700 14px/1.4 var(--pw-font-body); color: var(--pw-text-soft); }
+/* Kit form ("Hub signup") restyled to the Bookplate look.
+   Words, fields and colors still come from Kit; these rules only
+   add the ink borders, pressed button and brand fonts. */
+.kit-wrap .formkit-form[data-uid] {
+  background: transparent !important; border: 0 !important; box-shadow: none !important;
+  max-width: none !important; margin: 0 !important;
+  font-family: var(--body) !important;
+}
+.kit-wrap .formkit-form[data-uid] [data-style="clean"],
+.kit-wrap .formkit-form[data-uid] > div { padding: 0 !important; }
+.kit-wrap .formkit-form[data-uid] .formkit-header,
+.kit-wrap .formkit-form[data-uid] .formkit-header h2,
+.kit-wrap .formkit-form[data-uid] .formkit-header h1 {
+  font-family: var(--display) !important; font-weight: 400 !important;
+  color: var(--white) !important; text-align: left !important;
+  font-size: clamp(28px, 3.4vw, 40px) !important; line-height: 1.12 !important; margin: 0 0 10px !important;
+}
+.kit-wrap .formkit-form[data-uid] .formkit-subheader,
+.kit-wrap .formkit-form[data-uid] .formkit-subheader p {
+  color: var(--blue-tint) !important; text-align: left !important;
+  font-family: var(--body) !important; font-size: 18px !important; margin: 0 0 20px !important;
+}
+.kit-wrap .formkit-form[data-uid] .formkit-input {
+  font-family: var(--body) !important; font-size: 17px !important; color: var(--ink) !important;
+  background: var(--white) !important;
+  border: 2px solid var(--ink) !important; border-radius: var(--radius) !important;
+  min-height: 50px !important;
+}
+.kit-wrap .formkit-form[data-uid] .formkit-submit {
+  background: var(--sun) !important; color: var(--ink) !important;
+  border: 2px solid var(--ink) !important; border-radius: var(--radius) !important;
+  box-shadow: var(--press) !important; min-height: 50px !important;
+  font-family: var(--body) !important; font-weight: 700 !important;
+}
+.kit-wrap .formkit-form[data-uid] .formkit-submit > span { color: var(--ink) !important; font-weight: 700 !important; font-size: 17px !important; }
+.kit-wrap .formkit-form[data-uid] .formkit-submit:hover { transform: translateY(2px); box-shadow: 0 2px 0 var(--ink) !important; }
+.kit-wrap .formkit-form[data-uid] .formkit-guarantee,
+.kit-wrap .formkit-form[data-uid] .formkit-guarantee p {
+  color: var(--blue-tint) !important; text-align: left !important; font-size: 15px !important;
+}
+.kit-wrap .formkit-form[data-uid] .formkit-powered-by-convertkit-container { justify-content: flex-start !important; }
+.kit-fallback { color: var(--blue-tint); }
+
+/* ---------- workshop apps ---------- */
+.apps { padding: 64px 0 24px; }
+.apps .center-head h2 { font-size: clamp(26px, 3vw, 34px); }
+.app-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 28px; }
+.app {
+  background: var(--white); border: var(--edge); border-radius: var(--radius-card);
+  padding: 18px 20px; display: flex; flex-direction: column; gap: 6px;
+}
+.app h3 { font-size: 21px; }
+.app p { font-size: 16px; color: var(--slate); flex: 1; }
+
+/* ---------- footer ---------- */
+footer { border-top: 2px dashed var(--rule); margin-top: 56px; padding: 40px 0 48px; text-align: center; }
+footer .verse { font-style: italic; color: var(--slate); }
+footer .credit { font-size: 15px; color: var(--slate); margin-top: 8px; }
+footer .plate-sm { width: 74px; margin: 0 auto 16px; }
 </style>
 </head>
-<body class="pw-confetti">
-<div class="wrap">
+<body>
 
-  <!-- ================= HEADER ================= -->
-  <header class="site">
-    <a class="logo" href="#top">
-      <span class="pw-tile pw-tile--sunshine" style="width:44px;height:44px;font-size:22px" aria-hidden="true">🛠️</span>
-      Pop's Workshop
+<!-- ===== SVG pieces used on the page ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- the acorn: white cap, sunflower nut -->
+    <symbol id="acorn" viewBox="0 0 64 64">
+      <rect x="30" y="7" width="4" height="10" rx="2" fill="currentColor"/>
+      <path d="M13 31Q13 15 32 15Q51 15 51 31Z" fill="currentColor"/>
+      <path d="M17 31H47Q47 49 32 58Q17 49 17 31Z" fill="#F2B632"/>
+      <path d="M32 31H47Q47 49 32 58Z" fill="#E3A51F"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ================= TOP BAR ================= -->
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Pop's Story Workshop, home">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M12 0H52A12 12 0 0 0 64 12V52A12 12 0 0 0 52 64H12A12 12 0 0 0 0 52V12A12 12 0 0 0 12 0Z" fill="#C23B22"/>
+        <use href="#acorn" x="8" y="6" width="48" height="48" style="color:#fff"/>
+      </svg>
+      <span>Pop's Story <b>Workshop</b></span>
     </a>
-    <nav aria-label="Main">
-      <a class="pw-btn pw-btn--white pw-btn--sm" href="#apps">My Apps</a>
-      <a class="pw-btn pw-btn--white pw-btn--sm" href="#about">About</a>
-      <a class="pw-btn pw-btn--white pw-btn--sm" href="#soon">Coming Soon</a>
-      <a class="pw-btn pw-btn--coral pw-btn--sm" href="#signup">Join the List</a>
+    <nav class="nav" aria-label="Main">
+      <a href="#books">Books</a>
+      <a href="#friends">Meet the friends</a>
+      <a href="#leaders">For leaders</a>
+      <a href="#about">About Mr. Tim</a>
+      <a class="btn btn--sun btn--sm" href="#signup">Join the list</a>
     </nav>
-  </header>
+  </div>
+</header>
 
-  <!-- ================= HERO (centered) ================= -->
-  <section class="hero" id="top">
-    <span class="float f1 pw-float" aria-hidden="true">✝️</span>
-    <span class="float f2 pw-float pw-float--delay" aria-hidden="true">🎲</span>
-    <span class="float f3 pw-float pw-float--slow" aria-hidden="true">⭐</span>
-    <span class="float f4 pw-float pw-float--slow pw-float--delay" aria-hidden="true">📖</span>
+<main id="top">
 
-    <div class="avatar" aria-hidden="true">👴</div>
-    <span class="pw-label">Bible apps &amp; games for kids and families</span>
-    <h1>Made with love in <span class="pw-wavy">Pop's</span> workshop</h1>
-    <p class="lede">
-      I'm Pop Pop — a children's pastor and librarian turned app builder.
-      I make Bible apps, family games, and ministry goodies that help kids
-      fall in love with God's Word, and have a blast doing it.
-    </p>
-    <div class="hero-actions">
-      <a class="pw-btn pw-btn--sunshine pw-btn--lg" href="#apps">See what I've built 🎨</a>
-      <a class="pw-btn pw-btn--coral pw-btn--lg" href="#signup">Join the list ✉️</a>
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">
+          <span class="label label--chip">A Maple Hollow Story</span>
+          <span class="rule-line" aria-hidden="true"></span>
+        </div>
+        <h1>Picture books made for a grandparent's <em>lap</em>.</h1>
+        <p class="lede">Gentle, faith-filled stories about Sammy and his woodland friends. Each book shows one virtue through the story and saves the Bible verse for the very last page.</p>
+        <div class="actions">
+          <a class="btn btn--red" href="https://tcooper0528.github.io/sammys-treasure/" target="_blank" rel="noopener">Read a book free</a>
+          <a class="btn" href="#books">See all books</a>
+        </div>
+        <p class="small">For parents, grandparents, teachers and church leaders.</p>
+      </div>
+
+      <div class="art">
+        <div class="art-frame"><div class="art-pic">
+          <img src="https://tcooper0528.github.io/charlie-and-the-creek/pages/00_cover.jpg"
+               alt="Sammy the squirrel and his friend Charlie standing on stones by a sunny creek under a big oak tree"
+               width="1600" height="1600">
+        </div></div>
+        <div class="hello">
+          <img src="mr-tim.jpg" alt="Mr. Tim Cooper" width="64" height="64">
+          <div>
+            <strong>Hi, I'm Mr. Tim</strong>
+            <p>Retired children's pastor and librarian. "Pop Pop" to my grandkids.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ================= APPS ================= -->
-  <section class="block" id="apps">
-    <div class="section-head">
-      <span class="pw-label">Live on the web right now</span>
-      <h2>Peel one off and <span class="pw-wavy">play</span></h2>
+  <!-- ================= STRIP ================= -->
+  <div class="strip">
+    <div class="wrap">
+      <ul>
+        <li><span class="dot" style="background:var(--red)"></span>Free to read online</li>
+        <li><span class="dot" style="background:var(--blue)"></span>Printed books coming to Amazon</li>
+        <li><span class="dot" style="background:var(--sun)"></span>Read with Pop Pop videos, coming soon</li>
+      </ul>
     </div>
+  </div>
 
-    <div class="cards">
+  <!-- ================= BOOKS ================= -->
+  <section class="block" id="books">
+    <div class="wrap">
+      <div class="shelf-head">
+        <span class="label label--sun">New on the shelf</span>
+        <span class="rule-line" aria-hidden="true"></span>
+      </div>
+      <h2>Books to read on a lap</h2>
+      <p class="intro">Every book is free to read online. Printed copies are on the way.</p>
 
-      <article class="pw-sticker">
-        <span class="pw-tile pw-tile--sunshine" aria-hidden="true">📖</span>
-        <h3 class="pw-sticker__title">Lifelight</h3>
-        <p class="pw-sticker__body">A full Bible study app: read Scripture, play three word games, tackle a 347-question trivia challenge across 25 levels, track morning devotions with streaks and badges, and keep a prayer journal.</p>
-        <a class="pw-sticker__link" href="https://tcooper0528.github.io/Lifelight/" target="_blank" rel="noopener">Open Lifelight →</a>
-      </article>
-
-      <article class="pw-sticker pw-sticker--right">
-        <span class="pw-tile pw-tile--coral" aria-hidden="true">🎮</span>
-        <h3 class="pw-sticker__title">Lolly &amp; Pop's Hub <span class="pw-badge">Family Only</span></h3>
-        <p class="pw-sticker__body">Our private family hangout: six multiplayer games with room codes, live video chat, photo sharing, and a family message board. Grandkid-tested, Lolly-approved.</p>
-        <span class="pw-sticker__link" style="color: var(--pw-success)">Private — but I can build one for your family!</span>
-      </article>
-
-      <article class="pw-sticker">
-        <span class="pw-tile pw-tile--grass" aria-hidden="true">🐛</span>
-        <h3 class="pw-sticker__title">Glow Up Worm</h3>
-        <p class="pw-sticker__body">A neon multiplayer snake-style game. Eat, glow, grow, and try not to bump into your cousins. Simple, silly, and surprisingly competitive.</p>
-        <a class="pw-sticker__link" href="https://tcooper0528.github.io/glow-up-worm/" target="_blank" rel="noopener">Play Glow Up Worm →</a>
-        <!-- ^ double-check this URL matches your repo name -->
-      </article>
-
-      <article class="pw-sticker pw-sticker--right">
-        <span class="pw-tile pw-tile--sky" aria-hidden="true">⏱️</span>
-        <h3 class="pw-sticker__title">Exercise Timer</h3>
-        <p class="pw-sticker__body">A clean, no-fuss workout timer I built to keep myself moving. Set your intervals, hit start, done.</p>
-        <a class="pw-sticker__link" href="https://tcooper0528.github.io/exercise-timer/" target="_blank" rel="noopener">Try the Timer →</a>
-        <!-- ^ double-check this URL matches your repo name -->
-      </article>
-
+      <!-- The cards are built from the BOOKS list in the script at the
+           bottom of this page. To add a book or an Amazon link, edit
+           that list; no need to touch this part. -->
+      <div class="books" id="book-grid"></div>
     </div>
   </section>
 
-  <!-- ================= ABOUT (centered) ================= -->
+  <!-- ================= FRIENDS ================= -->
+  <section class="block friends" id="friends">
+    <div class="wrap">
+      <div class="center-head">
+        <svg viewBox="0 0 64 64" aria-hidden="true" style="color:var(--red)"><use href="#acorn"/></svg>
+        <h2>Meet the friends of Maple Hollow</h2>
+        <span class="underline" aria-hidden="true"></span>
+        <p class="intro">Sammy lives in the woods of Maple Hollow with a whole family of friends. Every story is about one of them learning something good, together.</p>
+      </div>
+      <ul class="friend-list">
+        <li>Sammy</li>
+        <li>Bella</li>
+        <li>Charlie</li>
+        <li>Mama &amp; Daddy Squirrel</li>
+        <li>Gus the Bear</li>
+        <li>Shelly the Snail</li>
+        <li>Oliver Owl</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
   <section class="block" id="about">
-    <div class="about">
-      <span class="pw-tile pw-tile--coral" style="width:96px;height:96px;font-size:46px;border-radius:50%" aria-hidden="true">❤️</span>
-      <h2>The story behind the workshop</h2>
-      <p>I've spent my life at the crossroads of <strong>faith, storytelling, and kids</strong> — as a children's pastor, a church leader, and a children's librarian. These days I add one more ingredient: <strong>technology</strong>.</p>
-      <p>Everything here starts the same way: something I wished existed for my own grandkids — Xena, Gotham, and Harvey — or for the ministry leaders and parents I've served alongside for decades. If it makes a kid smile <em>and</em> plants a seed of Scripture, it belongs in the workshop.</p>
+    <div class="wrap">
+      <div class="about">
+        <img class="portrait" src="mr-tim.jpg" alt="Mr. Tim Cooper" width="220" height="220">
+        <div>
+          <span class="label label--red">About Mr. Tim</span>
+          <h2>Hi, I'm Mr. Tim</h2>
+          <p>I'm a grandfather, a former children's pastor and a librarian who writes faith-filled picture books about the friends of Maple Hollow and beyond.</p>
+          <p>My stories are made for reading aloud on a grandparent's lap, or for sharing the wonder of a child who is just beginning to read and learn new words. Through them I share gentle lessons about kindness, hope and the greatest light of all: love.</p>
+          <p class="sign">Mr. Tim</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ================= COMING SOON (centered) ================= -->
-  <section class="block" id="soon">
-    <div class="soon">
-      <span class="pin" aria-hidden="true">📌</span>
-      <h2>Coming Soon: Bible Trivia Night Kit 🎉</h2>
-      <p>A print-and-play trivia night for kids' ministry — themed rounds pulled from Lifelight's 347-question bank, a host guide from someone who's actually wrangled a fellowship hall full of kids, score sheets, table tents, and a champion's certificate.</p>
-      <p><strong>Zero prep beyond printing.</strong> Join the list below and you'll be first to know (and first to get the founding discount).</p>
+  <!-- ================= LEADERS ================= -->
+  <section class="block leaders" id="leaders">
+    <div class="wrap">
+      <div>
+        <span class="label" style="color:var(--blue-deep)">For grown-ups who lead</span>
+        <h2>Church &amp; library leaders</h2>
+        <p class="intro">Each book shows one virtue through the story and saves one Bible verse for the last page, so it fits a Sunday school lesson, a children's church moment or a library storytime. Read them free on screen with your group.</p>
+      </div>
+      <table class="verse-table">
+        <thead><tr><th scope="col">Book</th><th scope="col">Virtue</th><th scope="col">Verse</th></tr></thead>
+        <tbody id="verse-rows"></tbody>
+      </table>
     </div>
   </section>
 
-  <!-- ================= EMAIL SIGNUP (centered) ================= -->
-  <section class="block" id="signup">
-    <div class="signup-box">
-      <h2>Join Pop's List ✉️</h2>
-      <p class="pitch">Ministry freebies, new apps, and first dibs on everything from the workshop. No spam, no noise — just the good stuff, once in a while.</p>
-
-      <!-- ============================================================
-           EMAIL SERVICE EMBED GOES HERE.
-           When you pick MailerLite or Buttondown, delete the form below
-           and paste their embed code in its place. Until then, this
-           placeholder form shows a friendly thank-you (it does NOT
-           actually collect emails yet).
-           ============================================================ -->
-      <form class="signup-form" id="placeholder-form">
-        <input type="email" id="email-input" placeholder="you@example.com" aria-label="Email address" required>
-        <button class="pw-btn pw-btn--coral" type="submit">Count me in!</button>
-      </form>
-      <p id="signup-thanks">🎉 Thanks! You're on the list, friend.</p>
-      <p class="signup-note">I'll never share your email. Unsubscribe anytime.</p>
+  <!-- ================= SIGNUP (Kit) ================= -->
+  <section class="signup" id="signup">
+    <div class="wrap">
+      <div class="plate" aria-hidden="true">
+        <!-- the primary bookplate logo -->
+        <svg viewBox="0 0 200 240">
+          <path d="M18 0H182A18 18 0 0 0 200 18V222A18 18 0 0 0 182 240H18A18 18 0 0 0 0 222V18A18 18 0 0 0 18 0Z" fill="#C23B22"/>
+          <path d="M24 10H176A14 14 0 0 0 190 24V216A14 14 0 0 0 176 230H24A14 14 0 0 0 10 216V24A14 14 0 0 0 24 10Z" fill="none" stroke="#fff" stroke-width="3"/>
+          <use href="#acorn" x="72" y="30" width="56" height="56" style="color:#fff"/>
+          <text x="100" y="122" text-anchor="middle" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif" font-weight="700" font-size="13" letter-spacing="2.5">FROM THE</text>
+          <text x="100" y="162" text-anchor="middle" fill="#fff" font-family="Caprasimo, Georgia, serif" font-size="40">Pop's</text>
+          <text x="100" y="190" text-anchor="middle" fill="#fff" font-family="Atkinson Hyperlegible, sans-serif" font-weight="700" font-size="12" letter-spacing="2">STORY WORKSHOP</text>
+        </svg>
+      </div>
+      <div>
+        <p class="label">Free for grown-ups</p>
+        <!-- KIT SIGNUP FORM ("Hub signup" in Kit). The script draws the form
+             right here. Change its words and fields in Kit, then Save & Publish. -->
+        <div class="kit-wrap">
+          <script async data-uid="3e34a39920" src="https://pop-s-story-workshop.kit.com/3e34a39920/index.js"></script>
+          <noscript><p class="kit-fallback">Please turn on JavaScript in your browser to see the signup form.</p></noscript>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ================= FOOTER ================= -->
-  <footer class="site">
-    <p class="verse">"Let the little children come to me…" — Matthew 19:14</p>
-    <p class="credit">Made with ❤️ by Pop Pop · © <span id="year"></span> Pop's Workshop</p>
-  </footer>
+  <!-- ================= FROM POP'S WORKSHOP (apps) ================= -->
+  <section class="apps" id="apps">
+    <div class="wrap">
+      <div class="center-head">
+        <span class="label label--red">Also from Pop's Workshop</span>
+        <h2>Apps and games I've built</h2>
+      </div>
+      <div class="app-list">
+        <article class="app">
+          <h3>Lifelight</h3>
+          <p>A Bible study app with word games, a 347-question trivia challenge, devotion streaks and a prayer journal.</p>
+          <a href="https://tcooper0528.github.io/Lifelight/" target="_blank" rel="noopener">Open Lifelight</a>
+        </article>
+        <article class="app">
+          <h3>Glow Up Worm</h3>
+          <p>A neon snake-style game for the family. Eat, glow, grow, and try not to bump into your cousins.</p>
+          <a href="https://tcooper0528.github.io/glow-up-worm/" target="_blank" rel="noopener">Play Glow Up Worm</a>
+        </article>
+        <article class="app">
+          <h3>Exercise Timer</h3>
+          <p>A clean, no-fuss interval timer I built to keep myself moving.</p>
+          <a href="https://tcooper0528.github.io/exercise-timer/" target="_blank" rel="noopener">Try the Timer</a>
+        </article>
+      </div>
+    </div>
+  </section>
 
-</div>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <svg class="plate-sm" viewBox="0 0 64 64" aria-hidden="true">
+      <path d="M12 0H52A12 12 0 0 0 64 12V52A12 12 0 0 0 52 64H12A12 12 0 0 0 0 52V12A12 12 0 0 0 12 0Z" fill="#C23B22"/>
+      <use href="#acorn" x="8" y="6" width="48" height="48" style="color:#fff"/>
+    </svg>
+    <p class="verse">"Let the little children come to me." Matthew 19:14</p>
+    <p class="credit">Stories by Mr. Tim Cooper · © <span id="year"></span> Pop's Story Workshop, part of Pop's Workshop</p>
+  </div>
+</footer>
 
 <script>
-// Footer year
-document.getElementById('year').textContent = new Date().getFullYear();
+/* ============================================================
+   BOOKS: edit this list to add books or links.
+   - read:   the free flipbook link
+   - amazon: paste the Amazon link when the book is live
+             (leave "" and the card shows "Print coming")
+   ============================================================ */
+var BOOKS = [
+  {
+    title:  "Sammy's Treasure",
+    virtue: "Kindness",
+    verse:  "Colossians 3:12",
+    image:  "https://tcooper0528.github.io/sammys-treasure/00_cover.jpg",
+    alt:    "Sammy the squirrel holding an acorn beside Gus the Bear under an autumn tree",
+    read:   "https://tcooper0528.github.io/sammys-treasure/",
+    amazon: ""
+  },
+  {
+    title:  "Charlie and the Creek",
+    virtue: "Obedience",
+    verse:  "Ephesians 6:1",
+    image:  "https://tcooper0528.github.io/charlie-and-the-creek/pages/00_cover.jpg",
+    alt:    "Sammy and Charlie standing on stones by a sunny creek",
+    read:   "https://tcooper0528.github.io/charlie-and-the-creek/",
+    amazon: ""
+  }
+];
 
-// Placeholder signup handler — replace this whole block when you
-// paste in your real MailerLite/Buttondown embed form.
-document.getElementById('placeholder-form').addEventListener('submit', function(e){
-  e.preventDefault();
-  var email = document.getElementById('email-input').value.trim();
-  if(!email) return;
-  this.style.display = 'none';
-  document.getElementById('signup-thanks').style.display = 'block';
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+
+var grid = document.getElementById('book-grid');
+var rows = document.getElementById('verse-rows');
+
+BOOKS.forEach(function (b) {
+  var buy = b.amazon
+    ? '<a class="btn btn--sm" href="' + esc(b.amazon) + '" target="_blank" rel="noopener">Buy on Amazon</a>'
+    : '<span class="btn btn--sm btn--soon">Print coming</span>';
+
+  grid.insertAdjacentHTML('beforeend',
+    '<article class="card">' +
+      '<div class="card-img"><img src="' + esc(b.image) + '" alt="' + esc(b.alt) + '" loading="lazy"></div>' +
+      '<div class="card-body">' +
+        '<span class="tag" style="align-self:flex-start">' + esc(b.virtue) + '</span>' +
+        '<h3>' + esc(b.title) + '</h3>' +
+        '<p class="series">A Maple Hollow Story</p>' +
+        '<div class="btns">' +
+          '<a class="btn btn--red btn--sm" href="' + esc(b.read) + '" target="_blank" rel="noopener">Read free</a>' +
+          buy +
+        '</div>' +
+      '</div>' +
+    '</article>');
+
+  rows.insertAdjacentHTML('beforeend',
+    '<tr><td>' + esc(b.title) + '</td><td>' + esc(b.virtue) + '</td><td>' + esc(b.verse) + '</td></tr>');
 });
+
+document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 
 </body>
