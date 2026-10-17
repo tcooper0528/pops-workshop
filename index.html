@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pop's Story Workshop · Picture books for reading together</title>
-<meta name="description" content="Gentle, faith-filled picture books about Sammy and his friends in Maple Hollow, by Mr. Tim Cooper, a retired children's pastor and librarian. Read them free online.">
+<meta name="description" content="Gentle, faith-filled picture books about Sammy and his friends in Maple Hollow, by Mr. Tim Cooper, a former children's pastor and librarian. Read them free online.">
 <meta name="theme-color" content="#C23B22">
 
 <!-- Favicon: the bookplate acorn -->
@@ -165,7 +165,7 @@ section.block { padding: 80px 0; }
 .center-head .underline { width: 72px; height: 6px; border-radius: 3px; background: var(--sun); margin-top: 6px; }
 
 /* ---------- book cards ---------- */
-.books { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 32px; margin-top: 40px; }
+.books { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 24px; margin-top: 40px; }
 .card {
   background: var(--white); border: var(--edge); border-radius: var(--radius-card);
   box-shadow: var(--press-card); overflow: hidden;
@@ -173,6 +173,8 @@ section.block { padding: 80px 0; }
 }
 .card-img { aspect-ratio: 4 / 3; background: var(--linen); border-bottom: var(--edge); }
 .card-img img { width: 100%; height: 100%; object-fit: cover; }
+.card-blank { width: 100%; height: 100%; display: grid; place-items: center; background: var(--blue); }
+.card-blank svg { width: 34%; height: auto; }
 .card-body { padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
 .card h3 { font-size: 26px; line-height: 1.15; }
 .card .series { font: 700 12px/1.3 var(--body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate); }
@@ -197,17 +199,6 @@ section.block { padding: 80px 0; }
 .about p { color: var(--slate); }
 .sign { font: 400 26px/1 var(--display); color: var(--red); margin-top: 18px; }
 @media (max-width: 760px) { .about { grid-template-columns: 1fr; text-align: center; justify-items: center; gap: 28px; } }
-
-/* ---------- leaders ---------- */
-.leaders { background: var(--linen); border-top: var(--edge); border-bottom: var(--edge); }
-.leaders .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
-.leaders h2 { margin-top: 10px; }
-.verse-table { width: 100%; border-collapse: separate; border-spacing: 0; background: var(--white); border: var(--edge); border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--press); }
-.verse-table th, .verse-table td { text-align: left; padding: 14px 18px; border-bottom: 2px dashed var(--rule); font-size: 16px; }
-.verse-table tr:last-child td { border-bottom: 0; }
-.verse-table th { font: 700 12px/1.2 var(--body); letter-spacing: 0.14em; text-transform: uppercase; color: var(--slate); background: var(--paper); border-bottom: var(--edge); }
-.verse-table td:first-child { font-family: var(--display); font-size: 19px; }
-@media (max-width: 860px) { .leaders .wrap { grid-template-columns: 1fr; } }
 
 /* ---------- signup band (Kit form) ---------- */
 .signup { background: var(--blue); color: var(--white); border-top: var(--edge); border-bottom: var(--edge); }
@@ -306,7 +297,6 @@ footer .plate-sm { width: 74px; margin: 0 auto 16px; }
     <nav class="nav" aria-label="Main">
       <a href="#books">Books</a>
       <a href="#friends">Meet the friends</a>
-      <a href="#leaders">For leaders</a>
       <a href="#about">About Mr. Tim</a>
       <a class="btn btn--sun btn--sm" href="#signup">Join the list</a>
     </nav>
@@ -323,10 +313,10 @@ footer .plate-sm { width: 74px; margin: 0 auto 16px; }
           <span class="label label--chip">A Maple Hollow Story</span>
           <span class="rule-line" aria-hidden="true"></span>
         </div>
-        <h1>Picture books made for a grandparent's <em>lap</em>.</h1>
+        <h1>Picture books made for listening in a <em>lap</em>.</h1>
         <p class="lede">Gentle, faith-filled stories about Sammy and his woodland friends. Each book shows one virtue through the story and saves the Bible verse for the very last page.</p>
         <div class="actions">
-          <a class="btn btn--red" href="https://tcooper0528.github.io/sammys-treasure/" target="_blank" rel="noopener">Read a book free</a>
+          <a class="btn btn--red" href="#books">Read a book free</a>
           <a class="btn" href="#books">See all books</a>
         </div>
         <p class="small">For parents, grandparents, teachers and church leaders.</p>
@@ -342,7 +332,7 @@ footer .plate-sm { width: 74px; margin: 0 auto 16px; }
           <img src="mr-tim.jpg" alt="Mr. Tim Cooper" width="64" height="64">
           <div>
             <strong>Hi, I'm Mr. Tim</strong>
-            <p>Retired children's pastor and librarian. "Pop Pop" to my grandkids.</p>
+            <p>Former children's pastor and librarian. "Pop Pop" to my grandkids.</p>
           </div>
         </div>
       </div>
@@ -368,7 +358,7 @@ footer .plate-sm { width: 74px; margin: 0 auto 16px; }
         <span class="rule-line" aria-hidden="true"></span>
       </div>
       <h2>Books to read on a lap</h2>
-      <p class="intro">Every book is free to read online. Printed copies are on the way.</p>
+      <p class="intro">Read Noah and Lily free online tonight. Sammy's stories are coming soon in print.</p>
 
       <!-- The cards are built from the BOOKS list in the script at the
            bottom of this page. To add a book or an Amazon link, edit
@@ -411,21 +401,6 @@ footer .plate-sm { width: 74px; margin: 0 auto 16px; }
           <p class="sign">Mr. Tim</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ================= LEADERS ================= -->
-  <section class="block leaders" id="leaders">
-    <div class="wrap">
-      <div>
-        <span class="label" style="color:var(--blue-deep)">For grown-ups who lead</span>
-        <h2>Church &amp; library leaders</h2>
-        <p class="intro">Each book shows one virtue through the story and saves one Bible verse for the last page, so it fits a Sunday school lesson, a children's church moment or a library storytime. Read them free on screen with your group.</p>
-      </div>
-      <table class="verse-table">
-        <thead><tr><th scope="col">Book</th><th scope="col">Virtue</th><th scope="col">Verse</th></tr></thead>
-        <tbody id="verse-rows"></tbody>
-      </table>
     </div>
   </section>
 
@@ -505,21 +480,37 @@ footer .plate-sm { width: 74px; margin: 0 auto 16px; }
    ============================================================ */
 var BOOKS = [
   {
+    title:  "Noah and the Dino Park Adventure",
+    virtue: "Teamwork",
+    image:  "noah.jpg",
+    alt:    "A smiling boy on a playground slide while a friendly green dinosaur peeks from behind a tree",
+    read:   "https://noah-and-the-dino-park-adventure.vercel.app/",
+    amazon: ""
+  },
+  {
+    title:  "Lily and the Bunny in Grandma's Garden",
+    virtue: "",
+    image:  "",
+    alt:    "",
+    read:   "https://lily-and-grandma.vercel.app/",
+    amazon: ""
+  },
+  {
     title:  "Sammy's Treasure",
     virtue: "Kindness",
-    verse:  "Colossians 3:12",
+    series: "A Maple Hollow Story",
     image:  "https://tcooper0528.github.io/sammys-treasure/00_cover.jpg",
     alt:    "Sammy the squirrel holding an acorn beside Gus the Bear under an autumn tree",
-    read:   "https://tcooper0528.github.io/sammys-treasure/",
+    read:   "",
     amazon: ""
   },
   {
     title:  "Charlie and the Creek",
     virtue: "Obedience",
-    verse:  "Ephesians 6:1",
+    series: "A Maple Hollow Story",
     image:  "https://tcooper0528.github.io/charlie-and-the-creek/pages/00_cover.jpg",
     alt:    "Sammy and Charlie standing on stones by a sunny creek",
-    read:   "https://tcooper0528.github.io/charlie-and-the-creek/",
+    read:   "",
     amazon: ""
   }
 ];
@@ -531,29 +522,37 @@ function esc(s) {
 }
 
 var grid = document.getElementById('book-grid');
-var rows = document.getElementById('verse-rows');
 
+/*  How each card's buttons work:
+    - read filled in   -> red "Read free" button
+    - amazon filled in -> "Buy on Amazon" button
+    - amazon empty     -> dashed "Print coming" label (only for books
+                          not free online)                              */
 BOOKS.forEach(function (b) {
-  var buy = b.amazon
-    ? '<a class="btn btn--sm" href="' + esc(b.amazon) + '" target="_blank" rel="noopener">Buy on Amazon</a>'
-    : '<span class="btn btn--sm btn--soon">Print coming</span>';
+  var btns = '';
+  if (b.read) {
+    btns += '<a class="btn btn--red btn--sm" href="' + esc(b.read) + '" target="_blank" rel="noopener">Read free</a>';
+  }
+  if (b.amazon) {
+    btns += '<a class="btn btn--sm" href="' + esc(b.amazon) + '" target="_blank" rel="noopener">Buy on Amazon</a>';
+  } else if (!b.read) {
+    btns += '<span class="btn btn--sm btn--soon">Print coming</span>';
+  }
+
+  var pic = b.image
+    ? '<img src="' + esc(b.image) + '" alt="' + esc(b.alt) + '" loading="lazy">'
+    : '<div class="card-blank" aria-hidden="true"><svg viewBox="0 0 64 64" style="color:#fff"><use href="#acorn"/></svg></div>';
 
   grid.insertAdjacentHTML('beforeend',
     '<article class="card">' +
-      '<div class="card-img"><img src="' + esc(b.image) + '" alt="' + esc(b.alt) + '" loading="lazy"></div>' +
+      '<div class="card-img">' + pic + '</div>' +
       '<div class="card-body">' +
-        '<span class="tag" style="align-self:flex-start">' + esc(b.virtue) + '</span>' +
+        (b.virtue ? '<span class="tag" style="align-self:flex-start">' + esc(b.virtue) + '</span>' : '') +
         '<h3>' + esc(b.title) + '</h3>' +
-        '<p class="series">A Maple Hollow Story</p>' +
-        '<div class="btns">' +
-          '<a class="btn btn--red btn--sm" href="' + esc(b.read) + '" target="_blank" rel="noopener">Read free</a>' +
-          buy +
-        '</div>' +
+        (b.series ? '<p class="series">' + esc(b.series) + '</p>' : '') +
+        '<div class="btns">' + btns + '</div>' +
       '</div>' +
     '</article>');
-
-  rows.insertAdjacentHTML('beforeend',
-    '<tr><td>' + esc(b.title) + '</td><td>' + esc(b.virtue) + '</td><td>' + esc(b.verse) + '</td></tr>');
 });
 
 document.getElementById('year').textContent = new Date().getFullYear();
