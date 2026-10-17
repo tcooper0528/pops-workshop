@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome to the Workshop · Pop's Story Workshop</title>
+<meta name="description" content="Welcome to Pop's Story Workshop: faith-filled picture books, Bible apps and family fun from Mr. Tim.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#C23B22">
+
+<!-- Favicon: the bookplate acorn -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M12 0H52A12 12 0 0 0 64 12V52A12 12 0 0 0 52 64H12A12 12 0 0 0 0 52V12A12 12 0 0 0 12 0Z' fill='%23C23B22'/%3E%3Cpath d='M17 30Q17 16 32 16Q47 16 47 30Z' fill='%23fff'/%3E%3Cpath d='M20 30H44Q44 46 32 54Q20 46 20 30Z' fill='%23F2B632'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Caprasimo&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   POP'S STORY WORKSHOP · Welcome page (Bookplate brand)
+   Kit sends new subscribers here after they sign up.
+   ============================================================ */
+:root {
+  --red: #C23B22; --red-dark: #A8321D; --ink: #1F2A44; --blue: #2F6E9E;
+  --sun: #F2B632; --linen: #F6E7D2; --paper: #FFFBF2; --slate: #3D4760;
+  --blue-tint: #E3EEF6; --blue-deep: #1E4F75; --rule: #E3CFAF; --white: #FFFFFF;
+  --display: 'Caprasimo', Georgia, serif;
+  --body: 'Atkinson Hyperlegible', system-ui, sans-serif;
+  --radius: 10px; --radius-card: 14px;
+  --edge: 2px solid var(--ink);
+  --press: 0 4px 0 var(--ink); --press-card: 0 6px 0 var(--ink);
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 18px/1.65 var(--body); -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; margin: 0; line-height: 1.12; color: var(--ink); }
+p { margin: 0; }
+img { max-width: 100%; display: block; }
+a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 2px; font-weight: 700; }
+a:hover { color: var(--blue-deep); }
+:focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; border-radius: 6px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+/* buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 48px; padding: 10px 22px;
+  font: 700 17px/1.1 var(--body); text-decoration: none;
+  color: var(--ink); background: var(--white);
+  border: var(--edge); border-radius: var(--radius); box-shadow: var(--press);
+  transition: transform .12s ease, box-shadow .12s ease, background-color .12s ease;
+}
+.btn:hover { transform: translateY(2px); box-shadow: 0 2px 0 var(--ink); background: var(--linen); color: var(--ink); }
+.btn:active { transform: translateY(4px); box-shadow: 0 0 0 var(--ink); }
+.btn--red { background: var(--red); color: var(--white); }
+.btn--red:hover { background: var(--red-dark); color: var(--white); }
+
+/* top bar */
+.topbar { border-bottom: var(--edge); background: var(--paper); }
+.topbar .inner { max-width: 1120px; margin: 0 auto; padding: 12px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.brand svg { width: 38px; height: 38px; flex: none; }
+.brand span { font: 400 22px/1 var(--display); color: var(--red); white-space: nowrap; }
+.brand span b { font-weight: 400; color: var(--ink); }
+.back { font-size: 16px; }
+@media (max-width: 480px) { .back { display: none; } }
+
+/* the letter */
+main { padding: 48px 16px 24px; }
+.letter {
+  max-width: 720px; margin: 0 auto;
+  background: var(--white); border: var(--edge); border-radius: 18px;
+  box-shadow: 0 8px 0 var(--ink); overflow: hidden;
+}
+.letter-head {
+  background: var(--red); color: var(--white);
+  display: flex; align-items: center; gap: 20px; padding: 22px 28px;
+  border-bottom: 4px solid var(--sun);
+}
+.letter-head svg { width: 76px; height: auto; flex: none; }
+.letter-head h1 { color: var(--white); font-size: clamp(28px, 5vw, 40px); }
+.letter-head .label { font: 700 13px/1.3 var(--body); letter-spacing: 0.16em; text-transform: uppercase; color: var(--white); opacity: .92; margin-top: 6px; }
+.letter-art { aspect-ratio: 16 / 9; background: var(--linen); border-bottom: var(--edge); overflow: hidden; }
+.letter-art img { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; }
+.letter-body { padding: 32px 36px 36px; }
+.letter-body > p + p { margin-top: 16px; }
+.letter-body .hi { font: 400 26px/1.2 var(--display); margin-bottom: 18px; }
+
+/* stories */
+.stories-title { font: 700 13px/1.3 var(--body); letter-spacing: 0.16em; text-transform: uppercase; color: var(--red); margin: 30px 0 14px; }
+.stories { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 30px; }
+.story {
+  display: flex; flex-direction: column; gap: 16px; justify-content: space-between;
+  border: var(--edge); border-radius: var(--radius-card); box-shadow: var(--press);
+  background: var(--white); padding: 20px 20px 20px 26px; position: relative; overflow: hidden;
+  text-decoration: none; color: var(--ink);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.story::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 10px; border-right: var(--edge); }
+.story--green::before { background: #47B172; }
+.story--sun::before { background: var(--sun); }
+.story:hover { transform: translateY(2px); box-shadow: 0 2px 0 var(--ink); color: var(--ink); }
+.story h3 { font-size: 23px; }
+.story .btn { align-self: flex-start; min-height: 44px; padding: 8px 16px; font-size: 15px; box-shadow: none; }
+@media (max-width: 560px) { .stories { grid-template-columns: 1fr; } .letter-body { padding: 26px 22px 30px; } }
+
+.closing { margin-top: 26px; }
+.sign { font: 400 30px/1 var(--display); color: var(--red); margin-top: 6px; }
+
+/* footer */
+footer { text-align: center; padding: 36px 16px 48px; color: var(--slate); font-size: 15px; }
+footer .home { margin-bottom: 10px; display: inline-block; }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="acorn" viewBox="0 0 64 64">
+      <rect x="30" y="7" width="4" height="10" rx="2" fill="currentColor"/>
+      <path d="M13 31Q13 15 32 15Q51 15 51 31Z" fill="currentColor"/>
+      <path d="M17 31H47Q47 49 32 58Q17 49 17 31Z" fill="#F2B632"/>
+      <path d="M32 31H47Q47 49 32 58Z" fill="#E3A51F"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="topbar">
+  <div class="inner">
+    <a class="brand" href="./" aria-label="Pop's Story Workshop, home">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <path d="M12 0H52A12 12 0 0 0 64 12V52A12 12 0 0 0 52 64H12A12 12 0 0 0 0 52V12A12 12 0 0 0 12 0Z" fill="#C23B22"/>
+        <use href="#acorn" x="8" y="6" width="48" height="48" style="color:#fff"/>
+      </svg>
+      <span>Pop's Story <b>Workshop</b></span>
+    </a>
+    <a class="back" href="./">Back to the workshop</a>
+  </div>
+</header>
+
+<main>
+  <article class="letter">
+
+    <div class="letter-head">
+      <svg viewBox="0 0 200 240" aria-hidden="true">
+        <path d="M18 0H182A18 18 0 0 0 200 18V222A18 18 0 0 0 182 240H18A18 18 0 0 0 0 222V18A18 18 0 0 0 18 0Z" fill="#fff"/>
+        <path d="M24 10H176A14 14 0 0 0 190 24V216A14 14 0 0 0 176 230H24A14 14 0 0 0 10 216V24A14 14 0 0 0 24 10Z" fill="none" stroke="#C23B22" stroke-width="3"/>
+        <use href="#acorn" x="72" y="30" width="56" height="56" style="color:#1F2A44"/>
+        <text x="100" y="122" text-anchor="middle" fill="#1F2A44" font-family="Atkinson Hyperlegible, sans-serif" font-weight="700" font-size="13" letter-spacing="2.5">FROM THE</text>
+        <text x="100" y="162" text-anchor="middle" fill="#C23B22" font-family="Caprasimo, Georgia, serif" font-size="40">Pop's</text>
+        <text x="100" y="190" text-anchor="middle" fill="#1F2A44" font-family="Atkinson Hyperlegible, sans-serif" font-weight="700" font-size="12" letter-spacing="2">STORY WORKSHOP</text>
+      </svg>
+      <div>
+        <h1>Welcome to the Workshop</h1>
+        <p class="label">You're on the list</p>
+      </div>
+    </div>
+
+    <div class="letter-art">
+      <img src="https://tcooper0528.github.io/sammys-treasure/00_cover.jpg"
+           alt="Sammy the squirrel holding an acorn beside Gus the Bear under an autumn tree"
+           width="1600" height="1600">
+    </div>
+
+    <div class="letter-body">
+      <p class="hi">Hi friend,</p>
+
+      <p>Welcome to Pop's Story Workshop! I'm so glad you're here.</p>
+
+      <p>I'm Mr. Tim, a grandfather, a former children's pastor and a librarian. To my grandkids, I'm Pop Pop. The workshop is where I make things for families: picture books for reading aloud on a lap, and Bible apps and games for kids and the grown-ups who love them.</p>
+
+      <p>Through my stories, and the games and fun I build with technology, I share gentle lessons about kindness, hope and the greatest light of all: love.</p>
+
+      <p class="stories-title">Two stories you can read free tonight</p>
+      <div class="stories">
+        <a class="story story--green" href="https://noah-and-the-dino-park-adventure.vercel.app/" target="_blank" rel="noopener">
+          <h3>Noah and the Dino Park Adventure</h3>
+          <span class="btn btn--red">Read free</span>
+        </a>
+        <a class="story story--sun" href="https://lily-and-grandma.vercel.app/" target="_blank" rel="noopener">
+          <h3>Lily and the Bunny in Grandma's Garden</h3>
+          <span class="btn btn--red">Read free</span>
+        </a>
+      </div>
+
+      <p>About once a month, I'll write with news from the workshop: a new book, a new game, a free coloring page, or just a note from Pop Pop. If you ever want to stop, there's an unsubscribe link at the bottom of every email.</p>
+
+      <div class="closing">
+        <p>With love,</p>
+        <p class="sign">Mr. Tim</p>
+      </div>
+    </div>
+
+  </article>
+</main>
+
+<footer>
+  <a class="home" href="./">Visit Pop's Story Workshop</a>
+  <p>© <span id="year"></span> Pop's Story Workshop · We never collect children's emails.</p>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
