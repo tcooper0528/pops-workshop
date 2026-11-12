@@ -459,8 +459,20 @@ footer .plate-sm { width: 74px; margin: 0 auto 16px; }
    - read:   the free flipbook link
    - amazon: paste the Amazon link when the book is live
              (leave "" and the card shows "Print coming")
+   - amazonNote: text shown when the paperback is not live yet
+             (e.g. "Paperback coming to Amazon for Thanksgiving")
    ============================================================ */
 var BOOKS = [
+  {
+    title:  "Sammy and the Upside-Down Pie",
+    virtue: "Service",
+    series: "A Maple Hollow Story",
+    image:  "https://tcooper0528.github.io/Sammy-and-the-upside-down-pie/00_cover.jpg",
+    alt:    "Sammy the squirrel in a red vest holding a pie at the window of his tree home, autumn leaves outside",
+    read:   "",
+    amazon: "",
+    amazonNote: "Paperback coming to Amazon for Thanksgiving"
+  },
   {
     title:  "Noah and the Dino Park Adventure",
     virtue: "Teamwork",
@@ -484,7 +496,7 @@ var BOOKS = [
     image:  "https://tcooper0528.github.io/sammys-treasure/00_cover.jpg",
     alt:    "Sammy the squirrel holding an acorn beside Gus the Bear under an autumn tree",
     read:   "",
-    amazon: ""
+    amazon: "https://www.amazon.com/dp/B0HQBBBGTJ"
   },
   {
     title:  "Charlie and the Creek",
@@ -493,7 +505,7 @@ var BOOKS = [
     image:  "https://tcooper0528.github.io/charlie-and-the-creek/pages/00_cover.jpg",
     alt:    "Sammy and Charlie standing on stones by a sunny creek",
     read:   "",
-    amazon: ""
+    amazon: "https://www.amazon.com/dp/B0HNG794J2"
   }
 ];
 
@@ -508,6 +520,8 @@ var grid = document.getElementById('book-grid');
 /*  How each card's buttons work:
     - read filled in   -> red "Read free" button
     - amazon filled in -> "Buy on Amazon" button
+    - amazonNote set   -> dashed label with that text (paperback
+                          coming, book already free to read)
     - amazon empty     -> dashed "Print coming" label (only for books
                           not free online)                              */
 BOOKS.forEach(function (b) {
@@ -517,6 +531,8 @@ BOOKS.forEach(function (b) {
   }
   if (b.amazon) {
     btns += '<a class="btn btn--sm" href="' + esc(b.amazon) + '" target="_blank" rel="noopener">Buy on Amazon</a>';
+  } else if (b.amazonNote) {
+    btns += '<span class="btn btn--sm btn--soon">' + esc(b.amazonNote) + '</span>';
   } else if (!b.read) {
     btns += '<span class="btn btn--sm btn--soon">Print coming</span>';
   }
