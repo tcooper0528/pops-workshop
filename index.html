@@ -170,6 +170,9 @@ section.block { padding: 80px 0; }
 .shelf h3 { font-size: clamp(24px, 3vw, 32px); }
 .shelf .shelf-intro { color: var(--slate); margin-top: 8px; }
 .shelf .books { margin-top: 24px; }
+.video-wrap { margin-top: 40px; }
+.video-wrap video { width: 100%; height: auto; display: block; border: var(--edge); }
+.video-wrap .video-caption { text-align: center; color: var(--slate); margin-top: 12px; }
 .card {
   background: var(--white); border: var(--edge); border-radius: var(--radius-card);
   box-shadow: var(--press-card); overflow: hidden;
@@ -369,6 +372,13 @@ footer .plate-sm { width: 74px; margin: 0 auto 16px; }
            bottom of this page. To add a book or an Amazon link, edit
            that list; no need to touch this part. Each shelf has its
            own grid, filled from the same list by each book's shelf. -->
+      <div class="video-wrap">
+        <video controls autoplay muted loop playsinline preload="metadata">
+          <source src="welcome.mp4" type="video/mp4">
+        </video>
+        <p class="video-caption">Sammy, Gus, Lily, Noah and friends say hello!</p>
+      </div>
+
       <div class="shelf">
         <h3>On Amazon</h3>
         <p class="shelf-intro">Sammy's stories in print — the Thanksgiving book is coming soon.</p>
